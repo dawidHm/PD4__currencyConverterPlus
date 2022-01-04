@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="pl">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kalkulator Walut</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css"
+        integrity="sha512-NhSC1YmyruXifcj/KFRWoC561YpHpc5Jtzgvbuzx5VozKpWvQ+4nXhPdFgmx8xqexRcpAglTj9sIBWINXa8x5w=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link href="css/style.css" rel="stylesheet">
+    <script defer src="js/script.js"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
+</head>
+
+<body>
+    <header class="header">
+        <h1 class="header__title">C u r r e n c y</h1>
+        <p class="header__logo">calculator</p>
+    </header>
+    <nav>
+        <ul class="menuList">
+            <li class="menuList__item"><a class="menuList__link" href="#convert-euro">Przelicz Euro</a></li>
+            <li class="menuList__item"><a class="menuList__link" target="_blank"
+                    href="https://internetowykantor.pl/kurs-euro/">Aktualny Kurs Euro</a></li>
+            <li class="menuList__item"><a class="menuList__link" target="_blank"
+                    href="https://internetowykantor.pl/kurs-dolara/">Aktualny Kurs Dolara</a></li>
+        </ul>
+    </nav>
+    <main class="mainWrapper">
+        <h2 id="convert-euro">Przelicz Waluty</h2>
+        <form class="js-form form">
+            <fieldset class="fieldset">
+                <legend class="form__legend">przelicz na PLN </legend>
+                <p class="form__paragraph">
+                    <label>
+                        Wybierz walutę
+                        <select class="js-currencySelector" name="currencyName">
+                            <option value="eur">€ EUR</option>
+                            <option value="usd">$ USD</option>
+                        </select>
+                    </label>
+                </p>
+                <p class="form__paragraph">
+                    <label class="js-form__euro form__euro">
+                        Kurs € <input class="js-form__inputEuro form__specialField" required type="number" min="0.01"
+                            step="0.01" value="4.59">
+                    </label>
+                    <label class="js-form__dollar form__dollar form__dollar--hidden">
+                        Kurs $ <input class="js-form__inputDollar form__specialField" required type="number" min="0.01"
+                            step="0.01" value="4.06">
+                    </label>
+                </p>
+                <p class="form__paragraph">
+                    <label>
+                        Wpisz kwotę w <span class="js-currencySymbol">€</span> <input class="js-inputCurrency" required type="number"
+                            min="1" step="1" value="1">
+                    </label>
+                </p>
+            </fieldset>
+            <p>
+                PLN: <span class="js-result">---</span>
+            </p>
+            <p>
+                <button class="form-button">Przelicz</button>
+            </p>
+        </form>
+    </main>
+    <footer class="fotter">
+        <p>f o o t e r</p>
+        <p>Copyright &#169; etc... </p>
+    </footer>
+</body>
+</html>
