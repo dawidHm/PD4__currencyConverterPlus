@@ -40,19 +40,20 @@
                 <p class="form__paragraph">
                     <label>
                         Wybierz walutę
-                        <select class="js-currencySelector" name="currencyName">
+                        <select class="js-currencyOption" name="currencyName">
                             <option value="eur-pln">EUR → PLN</option>
                             <option value="usd-pln">USD → PLN</option>
                             <option value="pln-eur">PLN → EUR</option>
                             <option value="pln-usd">PLN → USD</option>
+                            <option value="customOption">Własna waluta</option>
                         </select>
                     </label>
                 </p>
                 <p class="form__paragraph">
                     <label>
                         Kurs <span class="js-currencySymbol">€</span>
-                        <input placeholder="Wpisz wartość waluty" class="js-currentRate form__currentRate"
-                            name="currentRate" required type="text" min="0.01" step="0.01" value="4.57">
+                        <input class="js-currentRate form__currentRate" name="currentRate"
+                             required type="number" min="0.01" step="0.01" value="4.57" placeholder="Wpisz wartość waluty">
                     </label>
                 </p>
                 <p class="form__paragraph">
@@ -70,7 +71,8 @@
             </p>
         </form>
         <section>
-            <p class="regulations">Kursy pochodzą ze strony https://internetowykantor.pl/kurs-euro/ kurs średni z dnia 2022-01-06</p>
+            <p class="regulations">Kursy pochodzą ze strony https://internetowykantor.pl/kurs-euro/ kurs średni z dnia
+                2022-01-06</p>
         </section>
     </main>
     <footer class="fotter">
@@ -78,4 +80,5 @@
         <p>Copyright &#169; etc... </p>
     </footer>
 </body>
+
 </html>
