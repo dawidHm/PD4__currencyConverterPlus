@@ -217,3 +217,10 @@ body {
     min-height: 20px;
     display: inline-block;
 }
+
+.regulations {
+    font-size: 11px;
+    letter-spacing: 0.05rem;
+    line-height: 1.15;
+    padding-top: 15px;
+}
