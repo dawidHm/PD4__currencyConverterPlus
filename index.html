@@ -33,41 +33,40 @@
         </ul>
     </nav>
     <main class="mainWrapper">
-        <h2 id="convert-euro">Przelicz Waluty</h2>
+        <h2 class="form__header" id="convert-euro">Kalkulator Walut</h2>
         <form class="js-form form">
             <fieldset class="fieldset">
-                <legend class="form__legend">przelicz na PLN </legend>
+                <legend class="form__legend">przelicz waluty</legend>
                 <p class="form__paragraph">
                     <label>
                         Wybierz walutę
                         <select class="js-currencySelector" name="currencyName">
-                            <option value="eur">€ EUR</option>
-                            <option value="usd">$ USD</option>
+                            <option value="eur-pln">EUR → PLN</option>
+                            <option value="usd-pln">USD → PLN</option>
+                            <option value="pln-eur">PLN → EUR</option>
+                            <option value="pln-usd">PLN → USD</option>
                         </select>
                     </label>
                 </p>
                 <p class="form__paragraph">
-                    <label class="js-form__euro form__euro">
-                        Kurs € <input class="js-form__inputEuro form__specialField" required type="number" min="0.01"
-                            step="0.01" value="4.59">
-                    </label>
-                    <label class="js-form__dollar form__dollar form__dollar--hidden">
-                        Kurs $ <input class="js-form__inputDollar form__specialField" required type="number" min="0.01"
-                            step="0.01" value="4.06">
+                    <label>
+                        Kurs <span class="js-currencySymbol">€</span>
+                        <input placeholder="Wpisz wartość waluty" class="js-currentRate form__currentRate"
+                            name="currentRate" required type="text" min="0.01" step="0.01" value="4.57">
                     </label>
                 </p>
                 <p class="form__paragraph">
                     <label>
-                        Wpisz kwotę w <span class="js-currencySymbol">€</span> <input class="js-inputCurrency" required type="number"
-                            min="1" step="1" value="1">
+                        Wpisz kwotę w <span class="js-amountSymbol">€</span>
+                        <input class="js-amount" name="amount" required type="number" min="0.01" step="0.01" value="1">
                     </label>
                 </p>
             </fieldset>
             <p>
-                PLN: <span class="js-result">---</span>
+                <button class="form-button">Przelicz</button>
             </p>
             <p>
-                <button class="form-button">Przelicz</button>
+                <span class="js-convertResult convertResult"></span>
             </p>
         </form>
     </main>

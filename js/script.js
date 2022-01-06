@@ -1,37 +1,63 @@
-let currencyElement = document.querySelector(".js-form__inputEuro");
-let amountElement = document.querySelector(".js-inputCurrency");
-let formElement = document.querySelector(".js-form");
-let convertElement = document.querySelector(".js-result");
+    let formElement = document.querySelector(".js-form");
+    let currencySelectorElement = document.querySelector(".js-currencySelector");
+    let currencySymbolElement = document.querySelector(".js-currencySymbol");
+    let currentRateElement = document.querySelector(".js-currentRate");
+    let amountSymbolElement = document.querySelector(".js-amountSymbol");
+    let amountElement = document.querySelector(".js-amount");
+    let convertResultElement = document.querySelector(".js-convertResult");
 
-let selectorElement = document.querySelector(".js-currencySelector");
-let euroElement = document.querySelector(".js-form__euro");
-let dollarElement = document.querySelector(".js-form__dollar")
-let currencySymbolElement = document.querySelector(".js-currencySymbol");
+    let rateUSD = 4.04;
+    let rateEUR = 4.57;
 
-formElement.addEventListener("input", () => {
-    switch (selectorElement.value) {
-        case "eur":
-            dollarElement.classList.add("form__dollar--hidden");
-            euroElement.classList.remove("form__euro--hidden");
-            currencyElement = document.querySelector(".js-form__inputEuro");
-            currencySymbolElement.innerText = "€";
-            break;
-        case "usd":
-            euroElement.classList.add("form__euro--hidden");
-            dollarElement.classList.remove("form__dollar--hidden");
-            currencyElement = document.querySelector(".js-form__inputDollar");
-            currencySymbolElement.innerText = "$";
-            break;
-    }
-});
+    formElement.addEventListener("input", () => { 
+        switch (currencySelectorElement.value) {
+            case "eur-pln":
+                currentRateElement.value = rateEUR;
+                currencySymbolElement.innerText = "€";
+                amountSymbolElement.innerText = "€";
+                break;
+            case "usd-pln":
+                currentRateElement.value = rateUSD;
+                currencySymbolElement.innerText = "$";
+                amountSymbolElement.innerText = "$";
+                break;
+            case "pln-eur":
+                currentRateElement.value = rateEUR;
+                currencySymbolElement.innerText = "€";
+                amountSymbolElement.innerText = "zł";
+                break;
+            case "pln-usd":
+                currentRateElement.value = rateUSD;
+                currencySymbolElement.innerText = "$";
+                amountSymbolElement.innerText = "zł";
+                break;
+        }
 
-formElement.addEventListener("submit", (event) => {
-    event.preventDefault();
+    });
 
-    let currency = currencyElement.value;
-    let amount = amountElement.value;
+    formElement.addEventListener("submit", (event) => {
+        event.preventDefault();
+        
+        let currency = currentRateElement.value;
+        let amount = amountElement.value;
+        let convert;
 
-    let convert = (currency * amount);
-
-    convertElement.innerText = convert.toFixed(2);
-});
+        switch (currencySelectorElement.value) {
+            case "eur-pln":
+                convert = (currency * amount);
+                convertResultElement.innerText = amount + " EUR = " + convert.toFixed(2) + " PLN" ;
+                break;
+            case "usd-pln":
+                convert = (currency * amount);
+                convertResultElement.innerText = amount + " USD = " + convert.toFixed(2) + " PLN" ;
+                break;
+            case "pln-eur":
+                convert = (amount / currency);
+                convertResultElement.innerText = amount + " PLN = " + convert.toFixed(2) + " EUR" ;
+                break;
+            case "pln-usd":
+                convert = (amount / currency);
+                convertResultElement.innerText = amount + " PLN = " + convert.toFixed(2) + " USD" ;
+                break;
+        }     
+    });
