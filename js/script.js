@@ -80,9 +80,9 @@
     const init = () => {
         changeLabels();
 
-        calculateResult();
-
         formElement.addEventListener("submit", onFormSubmit);
+
+        calculateResult();
     }
     
     init();
