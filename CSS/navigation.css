@@ -1,0 +1,50 @@
+.menuList {
+    background-color: #01385C;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    list-style: none;
+    max-width: 100%;
+    margin: 0 auto;
+    box-shadow: inset 0px 5px 8px -5px #313131;
+    font-size: 16px;
+    padding: 1px;
+}
+
+.menuList__item {
+    color: #f1f1f1;
+    display: inline;
+}
+
+.menuList__link {
+    color: #f1f1f1;
+    margin: 0px 0px;
+    display: inline-block;
+    padding: 15px;
+    max-width: 218px;
+    text-align: center;
+    text-decoration: none;
+}
+
+.menuList__link:visited {
+    text-decoration: none;
+    color: #dfdad1;
+}
+
+.menuList__link:focus {
+    text-decoration: none;
+    color: rgb(255, 255, 255);
+    outline: 1px solid currentColor;
+}
+
+.menuList__link:hover {
+    text-decoration: none;
+    color: #fff;
+    background-color: #5D89A6;
+    box-shadow: inset 0px 5px 8px -5px #01385C;
+}
+
+.menuList__link:active {
+    text-decoration: none;
+    color: rgb(45, 179, 45);
+}
