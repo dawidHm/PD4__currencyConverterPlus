@@ -34,9 +34,10 @@
     const onFormSubmit = (event) => {
         event.preventDefault();
 
+        const currency = currencyOptionElement.value;
         const amount = +amountElement.value;
 
-        const result = calculateResult(amount, currencyOptionElement.value);
+        const result = calculateResult(amount, currency);
     }
   
     const changeLabels = () => {
@@ -82,9 +83,7 @@
         calculateResult();
 
         formElement.addEventListener("submit", onFormSubmit);
-        onFormSubmit();
     }
     
     init();
- 
 }
