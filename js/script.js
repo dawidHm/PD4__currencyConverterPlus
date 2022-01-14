@@ -1,9 +1,8 @@
 {
     const formElement = document.querySelector(".js-form");
-    const amountElement = document.querySelector(".js-amount");
     const currencyOptionElement = document.querySelector(".js-currencyOption");
     const currentRateElement = document.querySelector(".js-currentRate");
-   
+
     const calculateResult = (amount, currency) => {
         const convertResultElement = document.querySelector(".js-convertResult");
 
@@ -28,26 +27,25 @@
                 result = amount / currentRateElement.value;
                 convertResultElement.innerHTML = `${amount.toFixed(2)} PLN = <strong>${result.toFixed(2)} X </strong>`;
                 break;
-        }     
+        }
     }
 
     const onFormSubmit = (event) => {
         event.preventDefault();
 
-        const currency = currencyOptionElement.value;
+        const amountElement = document.querySelector(".js-amount");
+        let currency = currencyOptionElement.value;
         const amount = +amountElement.value;
 
         const result = calculateResult(amount, currency);
     }
-  
+
     const changeLabels = () => {
         const currencySymbolElement = document.querySelector(".js-currencySymbol");
         const amountSymbolElement = document.querySelector(".js-amountSymbol");
 
-        formElement.addEventListener("input", () => { 
-            const currency = currencyOptionElement.value;
-        
-            switch (currency) {
+        formElement.addEventListener("input", () => {
+            switch (currencyOptionElement.value) {
                 case "eur-pln":
                     currentRateElement.value = 4.57;
                     currencySymbolElement.innerText = "€";
@@ -74,16 +72,14 @@
                     break;
             }
         });
-    
+
     }
 
     const init = () => {
         changeLabels();
 
         formElement.addEventListener("submit", onFormSubmit);
-
-        calculateResult();
     }
-    
+
     init();
 }
